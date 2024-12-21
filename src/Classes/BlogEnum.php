@@ -30,14 +30,14 @@ enum BlogEnum
 
     static public function permissions()
     {
-        return ItemPermission::group(__(trans('permission_header')))
-            ->addPermission(self::postView, __(trans('post_view')))
-            ->addPermission(self::postCreate, __(trans('post_create')))
-            ->addPermission(self::postUpdate, __(trans('post_edit')))
-            ->addPermission(self::postDelete, __(trans('post_delete')))
-            ->addPermission(self::categoryView, __(trans('category_view')))
-            ->addPermission(self::categoryCreate, __(trans('category_create')))
-            ->addPermission(self::categoryUpdate, __(trans('category_edit')))
-            ->addPermission(self::categoryDelete, __(trans('category_delete')));
+        return ItemPermission::group(__('permission_header'))
+            ->addPermission(self::postView, __('post_view'))
+            ->addPermission(self::postCreate, __('post_create'))
+            ->addPermission(self::postUpdate, __('post_edit'))
+            ->addPermission(self::postDelete, __('post_delete'))
+            ->addPermission(self::categoryView, __('category_view'))
+            ->addPermission(self::categoryCreate, __('category_create'))
+            ->addPermission(self::categoryUpdate, __('category_edit'))
+            ->addPermission(self::categoryDelete, __('category_delete'));
     }
 }

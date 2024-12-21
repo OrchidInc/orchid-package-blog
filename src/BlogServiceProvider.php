@@ -12,13 +12,31 @@ class BlogServiceProvider extends OrchidServiceProvider
 {
     public function boot(Dashboard $dashboard): void
     {
-        Lang::addJsonPath(__DIR__ . '/../lang');
-
         $dashboard->registerPermissions(BlogEnum::permissions());
         parent::boot($dashboard);
 
         $this->publish();
         $this->router();
+    }
+
+    /**
+     * Register bindings the service provider.
+     */
+    public function register()
+    {
+        $this->registerTranslations();
+    }
+
+    /**
+     * Register translations.
+     *
+     * @return $this
+     */
+    public function registerTranslations(): self
+    {
+        $this->loadJsonTranslationsFrom(__DIR__ . '/../resources/lang');
+
+        return $this;
     }
 
     public function menu(): array
