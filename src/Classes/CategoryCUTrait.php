@@ -17,6 +17,7 @@ use Orchid\Screen\Fields\Relation;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
+use OrchidInc\Orchid\Blog\Enums\BlogEnum;
 use OrchidInc\Orchid\Blog\Models\Category;
 
 trait CategoryCUTrait
