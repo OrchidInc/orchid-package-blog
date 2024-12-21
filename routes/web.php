@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use OrchidInc\Orchid\Blog\Classes\BlogEnum;
+use OrchidInc\Orchid\Blog\Enums\BlogEnum;
 use OrchidInc\Orchid\Blog\Screens\CategoryCreateScreen;
 use OrchidInc\Orchid\Blog\Screens\CategoryScreen;
 use OrchidInc\Orchid\Blog\Screens\CategoryUpdateScreen;
@@ -23,7 +23,7 @@ app('router')
                     ->screen('', PostScreen::class)
                     ->name(BlogEnum::postView)
                     ->breadcrumbs(
-                        fn (Trail $trail) => $trail
+                        fn(Trail $trail) => $trail
                             ->parent('platform.index')
                             ->push(__('Blog'), route(BlogEnum::postView))
                             ->push(__('Posts'))
@@ -33,7 +33,7 @@ app('router')
                     ->screen('create', PostCreateScreen::class)
                     ->name(BlogEnum::postCreate)
                     ->breadcrumbs(
-                        fn (Trail $trail) => $trail
+                        fn(Trail $trail) => $trail
                             ->parent('platform.index')
                             ->push(__('Blog'), route(BlogEnum::postView))
                             ->push(__('Posts'), route(BlogEnum::postView))
@@ -44,7 +44,7 @@ app('router')
                     ->screen('{post}/update', PostUpdateScreen::class)
                     ->name(BlogEnum::postUpdate)
                     ->breadcrumbs(
-                        fn (Trail $trail) => $trail
+                        fn(Trail $trail) => $trail
                             ->parent('platform.index')
                             ->push(__('Blog'), route(BlogEnum::postView))
                             ->push(__('Posts'), route(BlogEnum::postView))
@@ -60,7 +60,7 @@ app('router')
                     ->screen('', CategoryScreen::class)
                     ->name(BlogEnum::categoryView)
                     ->breadcrumbs(
-                        fn (Trail $trail) => $trail
+                        fn(Trail $trail) => $trail
                             ->parent('platform.index')
                             ->push(__('Blog'), route(BlogEnum::postView))
                             ->push(__('Categories'))
@@ -70,7 +70,7 @@ app('router')
                     ->screen('create', CategoryCreateScreen::class)
                     ->name(BlogEnum::categoryCreate)
                     ->breadcrumbs(
-                        fn (Trail $trail) => $trail
+                        fn(Trail $trail) => $trail
                             ->parent('platform.index')
                             ->push(__('Blog'), route(BlogEnum::postView))
                             ->push(__('Categories'), route(BlogEnum::categoryView))
@@ -81,7 +81,7 @@ app('router')
                     ->screen('{category}/update', CategoryUpdateScreen::class)
                     ->name(BlogEnum::categoryUpdate)
                     ->breadcrumbs(
-                        fn (Trail $trail) => $trail
+                        fn(Trail $trail) => $trail
                             ->parent('platform.index')
                             ->push(__('Blog'), route(BlogEnum::postView))
                             ->push(__('Categories'), route(BlogEnum::categoryView))
