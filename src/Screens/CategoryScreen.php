@@ -1,13 +1,11 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace OrchidInc\Orchid\Blog\Screens;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use OrchidInc\Orchid\Blog\Classes\BlogEnum;
-use OrchidInc\Orchid\Blog\Models\Category;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
@@ -17,6 +15,8 @@ use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
+use OrchidInc\Orchid\Blog\Classes\BlogEnum;
+use OrchidInc\Orchid\Blog\Models\Category;
 
 class CategoryScreen extends Screen
 {
@@ -26,7 +26,7 @@ class CategoryScreen extends Screen
             'categories' => Category::query()
                 ->filters()
                 ->defaultSort('id')
-                ->get()
+                ->get(),
         ];
     }
 
@@ -94,11 +94,11 @@ class CategoryScreen extends Screen
                             Button::make(__('Delete'))
                                 ->icon('bs.trash3')
                                 ->canSee(auth()->user()->hasAccess(BlogEnum::categoryDelete))
-                                ->confirm(__(BlogEnum::prefixPlugin . '::plugin_blog.confirm_delete'))
+                                ->confirm(__(BlogEnum::prefixPlugin.'::plugin_blog.confirm_delete'))
                                 ->method('remove', ['id' => $category->id]),
                         ]))
                     ->cantHide(),
-            ])
+            ]),
         ];
     }
 
@@ -112,7 +112,7 @@ class CategoryScreen extends Screen
         $category = Category::query()->findOrFail($request->get('id'));
         $category->delete();
 
-        Toast::info(__(BlogEnum::prefixPlugin . '::plugin_blog.removed'));
+        Toast::info(__(BlogEnum::prefixPlugin.'::plugin_blog.removed'));
 
         return redirect()->route(BlogEnum::categoryView);
     }

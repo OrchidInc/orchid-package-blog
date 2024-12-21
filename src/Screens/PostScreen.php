@@ -1,13 +1,11 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace OrchidInc\Orchid\Blog\Screens;
 
 use Illuminate\Http\Client\Request;
 use Illuminate\Http\RedirectResponse;
-use OrchidInc\Orchid\Blog\Classes\BlogEnum;
-use OrchidInc\Orchid\Blog\Models\Post;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\DropDown;
 use Orchid\Screen\Actions\Link;
@@ -17,6 +15,8 @@ use Orchid\Screen\Screen;
 use Orchid\Screen\TD;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
+use OrchidInc\Orchid\Blog\Classes\BlogEnum;
+use OrchidInc\Orchid\Blog\Models\Post;
 
 class PostScreen extends Screen
 {
@@ -26,7 +26,7 @@ class PostScreen extends Screen
             'posts' => Post::query()
                 ->filters()
                 ->defaultSort('created_at', 'desc')
-                ->paginate(20)
+                ->paginate(20),
         ];
     }
 
@@ -70,7 +70,7 @@ class PostScreen extends Screen
                         $image = $post->attachment()->first();
 
                         return $image
-                            ? '<img src="' . $image->url . '" height="50px" />'
+                            ? '<img src="'.$image->url.'" height="50px" />'
                             : '&mdash;';
                     })
                     ->alignCenter()
@@ -114,11 +114,11 @@ class PostScreen extends Screen
                             Button::make(__('Delete'))
                                 ->icon('bs.trash3')
                                 ->canSee(auth()->user()->hasAccess(BlogEnum::postDelete))
-                                ->confirm(__(BlogEnum::prefixPlugin . '::plugin_blog.confirm_delete'))
+                                ->confirm(__(BlogEnum::prefixPlugin.'::plugin_blog.confirm_delete'))
                                 ->method('remove', ['id' => $post->id]),
                         ]))
                     ->cantHide(),
-            ])
+            ]),
         ];
     }
 

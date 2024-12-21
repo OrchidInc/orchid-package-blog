@@ -8,27 +8,37 @@ use Orchid\Platform\ItemPermission;
 
 enum BlogEnum
 {
-    const author = 'orchidinc';
+    public const author = 'orchidinc';
 
-    const prefixPlugin = self::author . '.blog';
-    const prefix = self::prefixPlugin . '.';
+    public const prefixPlugin = self::author.'.blog';
 
-    const postfixView = 'view';
-    const postfixCreate = 'create';
-    const postfixUpdate = 'update';
-    const postfixDelete = 'delete';
+    public const prefix = self::prefixPlugin.'.';
 
-    const postView = self::prefix . 'posts.' . self::postfixView;
-    const postCreate = self::prefix . 'posts.' . self::postfixCreate;
-    const postUpdate = self::prefix . 'posts.' . self::postfixUpdate;
-    const postDelete = self::prefix . 'posts.' . self::postfixDelete;
+    public const postfixView = 'view';
 
-    const categoryView = self::prefix . 'categories.' . self::postfixView;
-    const categoryCreate = self::prefix . 'categories.' . self::postfixCreate;
-    const categoryUpdate = self::prefix . 'categories.' . self::postfixUpdate;
-    const categoryDelete = self::prefix . 'categories.' . self::postfixDelete;
+    public const postfixCreate = 'create';
 
-    static public function permissions()
+    public const postfixUpdate = 'update';
+
+    public const postfixDelete = 'delete';
+
+    public const postView = self::prefix.'posts.'.self::postfixView;
+
+    public const postCreate = self::prefix.'posts.'.self::postfixCreate;
+
+    public const postUpdate = self::prefix.'posts.'.self::postfixUpdate;
+
+    public const postDelete = self::prefix.'posts.'.self::postfixDelete;
+
+    public const categoryView = self::prefix.'categories.'.self::postfixView;
+
+    public const categoryCreate = self::prefix.'categories.'.self::postfixCreate;
+
+    public const categoryUpdate = self::prefix.'categories.'.self::postfixUpdate;
+
+    public const categoryDelete = self::prefix.'categories.'.self::postfixDelete;
+
+    public static function permissions()
     {
         return ItemPermission::group(__('permission_header'))
             ->addPermission(self::postView, __('post_view'))

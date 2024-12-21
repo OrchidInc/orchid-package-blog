@@ -12,7 +12,9 @@ use Orchid\Screen\AsSource;
 
 class Category extends Model
 {
-    use AsSource, Attachable, Filterable;
+    use AsSource;
+    use Attachable;
+    use Filterable;
 
     protected $table = 'blog_categories';
 

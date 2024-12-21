@@ -10,7 +10,9 @@ use Orchid\Screen\AsSource;
 
 class Post extends Model
 {
-    use AsSource, Attachable, Filterable;
+    use AsSource;
+    use Attachable;
+    use Filterable;
 
     protected $table = 'blog_posts';
 
