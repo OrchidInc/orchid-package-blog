@@ -10,9 +10,9 @@ enum BlogEnum
 {
     public const author = 'orchidinc';
 
-    public const prefixPlugin = self::author . '.blog';
+    public const prefixPlugin = self::author.'.blog';
 
-    public const prefix = self::prefixPlugin . '.';
+    public const prefix = self::prefixPlugin.'.';
 
     public const postfixView = 'view';
 
@@ -22,21 +22,21 @@ enum BlogEnum
 
     public const postfixDelete = 'delete';
 
-    public const postView = self::prefix . 'posts.' . self::postfixView;
+    public const postView = self::prefix.'posts.'.self::postfixView;
 
-    public const postCreate = self::prefix . 'posts.' . self::postfixCreate;
+    public const postCreate = self::prefix.'posts.'.self::postfixCreate;
 
-    public const postUpdate = self::prefix . 'posts.' . self::postfixUpdate;
+    public const postUpdate = self::prefix.'posts.'.self::postfixUpdate;
 
-    public const postDelete = self::prefix . 'posts.' . self::postfixDelete;
+    public const postDelete = self::prefix.'posts.'.self::postfixDelete;
 
-    public const categoryView = self::prefix . 'categories.' . self::postfixView;
+    public const categoryView = self::prefix.'categories.'.self::postfixView;
 
-    public const categoryCreate = self::prefix . 'categories.' . self::postfixCreate;
+    public const categoryCreate = self::prefix.'categories.'.self::postfixCreate;
 
-    public const categoryUpdate = self::prefix . 'categories.' . self::postfixUpdate;
+    public const categoryUpdate = self::prefix.'categories.'.self::postfixUpdate;
 
-    public const categoryDelete = self::prefix . 'categories.' . self::postfixDelete;
+    public const categoryDelete = self::prefix.'categories.'.self::postfixDelete;
 
     public static function permissions()
     {

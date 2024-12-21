@@ -61,7 +61,7 @@ class CategoryScreen extends Screen
 
                 TD::make('posts', __('Posts'))
                     ->alignCenter()
-                    ->render(fn($category) => count($category->posts)),
+                    ->render(fn ($category) => count($category->posts)),
 
                 TD::make('status', __('Status'))
                     ->alignCenter()
@@ -83,7 +83,7 @@ class CategoryScreen extends Screen
                     ->alignCenter()
                     ->width('100px')
                     ->canSee(auth()->user()->hasAnyAccess([BlogEnum::categoryUpdate, BlogEnum::categoryDelete]))
-                    ->render(fn(Category $category) => DropDown::make()
+                    ->render(fn (Category $category) => DropDown::make()
                         ->icon('bs.three-dots-vertical')
                         ->list([
                             Link::make(__('Edit'))
@@ -94,7 +94,7 @@ class CategoryScreen extends Screen
                             Button::make(__('Delete'))
                                 ->icon('bs.trash3')
                                 ->canSee(auth()->user()->hasAccess(BlogEnum::categoryDelete))
-                                ->confirm(__(BlogEnum::prefixPlugin . '::plugin_blog.confirm_delete'))
+                                ->confirm(__(BlogEnum::prefixPlugin.'::plugin_blog.confirm_delete'))
                                 ->method('remove', ['id' => $category->id]),
                         ]))
                     ->cantHide(),
@@ -112,7 +112,7 @@ class CategoryScreen extends Screen
         $category = Category::query()->findOrFail($request->get('id'));
         $category->delete();
 
-        Toast::info(__(BlogEnum::prefixPlugin . '::plugin_blog.removed'));
+        Toast::info(__(BlogEnum::prefixPlugin.'::plugin_blog.removed'));
 
         return redirect()->route(BlogEnum::categoryView);
     }
