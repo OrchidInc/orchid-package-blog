@@ -5,7 +5,7 @@ namespace OrchidInc\Orchid\Blog\Models;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
-use OrchidInc\Status\Classes\StatusHelper;
+use MrVaco\Status\Classes\StatusHelper;
 use Orchid\Attachment\Attachable;
 use Orchid\Filters\Filterable;
 use Orchid\Screen\AsSource;

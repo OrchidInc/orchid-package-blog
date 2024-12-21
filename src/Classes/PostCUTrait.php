@@ -1,16 +1,14 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace OrchidInc\Orchid\Blog\Classes;
 
 use Carbon\Carbon;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use OrchidInc\Orchid\Blog\Models\Category;
-use OrchidInc\Orchid\Blog\Models\Post;
-use OrchidInc\Status\Classes\StatusHelper;
-use OrchidInc\Status\Models\Status;
+use MrVaco\Status\Classes\StatusHelper;
+use MrVaco\Status\Models\Status;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\CheckBox;
@@ -22,6 +20,8 @@ use Orchid\Screen\Fields\Relation;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
+use OrchidInc\Orchid\Blog\Models\Category;
+use OrchidInc\Orchid\Blog\Models\Post;
 
 trait PostCUTrait
 {

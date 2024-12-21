@@ -1,14 +1,13 @@
 <?php
 
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace OrchidInc\Orchid\Blog\Classes;
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use OrchidInc\Orchid\Blog\Models\Category;
-use OrchidInc\Status\Classes\StatusHelper;
-use OrchidInc\Status\Models\Status;
+use MrVaco\Status\Classes\StatusHelper;
+use MrVaco\Status\Models\Status;
 use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Actions\Link;
 use Orchid\Screen\Fields\Group;
@@ -18,6 +17,7 @@ use Orchid\Screen\Fields\Relation;
 use Orchid\Support\Color;
 use Orchid\Support\Facades\Layout;
 use Orchid\Support\Facades\Toast;
+use OrchidInc\Orchid\Blog\Models\Category;
 
 trait CategoryCUTrait
 {
@@ -100,7 +100,7 @@ trait CategoryCUTrait
                     ->type('text')
                     ->max(255)
                     ->height('200px'),
-            ])
+            ]),
         ];
     }
 
