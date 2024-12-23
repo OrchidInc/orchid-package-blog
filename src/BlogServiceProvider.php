@@ -24,6 +24,7 @@ class BlogServiceProvider extends OrchidServiceProvider
     public function register()
     {
         $this->registerTranslations();
+        $this->registerMigrations();
     }
 
     /**
@@ -34,6 +35,18 @@ class BlogServiceProvider extends OrchidServiceProvider
     public function registerTranslations(): self
     {
         $this->loadJsonTranslationsFrom(__DIR__.'/../resources/lang');
+
+        return $this;
+    }
+
+    /**
+     * Register Migrations without the need to publish migration files.
+     *
+     * @return $this
+     */
+    public function registerMigrations(): self
+    {
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
 
         return $this;
     }
@@ -76,7 +89,7 @@ class BlogServiceProvider extends OrchidServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/../migrations' => database_path('migrations'),
+            __DIR__.'/../database/migrations' => database_path('migrations'),
         ], 'plugin-migrations');
     }
 }
