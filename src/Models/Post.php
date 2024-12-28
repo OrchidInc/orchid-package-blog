@@ -37,7 +37,7 @@ class Post extends Model
             'tags' => 'array',
             'image_id' => 'integer',
             'recommended' => 'boolean',
-            'published_at' => 'timestamp',
+            'published_at' => 'datetime',
         ];
     }
 
