@@ -74,12 +74,14 @@ trait PostCUTrait
                         ->type('text')
                         ->max(255)
                         ->required()
+                        ->id('slug-title')
                         ->horizontal(),
 
                     Input::make('post.slug')
                         ->title(__('Slug'))
                         ->type('text')
                         ->max(255)
+                        ->id('slug')
                         ->horizontal(),
 
                     Input::make('post.keywords')
@@ -137,10 +139,10 @@ trait PostCUTrait
 
                     Cropper::make('post.image_id')
                         ->title(__('Image'))
-                        ->minCanvas(300)
-                        ->maxCanvas(450)
-                        ->width(450)
-                        ->height(300)
+                        ->minWidth(850)
+                        ->minHeight(450)
+                        ->width(850)
+                        ->height(450)
                         ->targetId(),
                 ]),
             ])->ratio('60/40'),
@@ -162,7 +164,7 @@ trait PostCUTrait
         ]);
 
         $post->fill($request->collect('post')->toArray())->save();
-        $post->attachment()->syncWithoutDetaching(
+        $post->attachments()->syncWithoutDetaching(
             $request->input('post.image_id', [])
         );
 
