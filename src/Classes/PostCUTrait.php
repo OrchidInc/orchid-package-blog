@@ -82,6 +82,7 @@ trait PostCUTrait
                         ->type('text')
                         ->max(255)
                         ->id('slug')
+                        ->readonly()
                         ->horizontal(),
 
                     Input::make('post.keywords')
