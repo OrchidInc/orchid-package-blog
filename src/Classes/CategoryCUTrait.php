@@ -69,12 +69,15 @@ trait CategoryCUTrait
                         ->title(__('Name'))
                         ->type('text')
                         ->max(255)
+                        ->id('slug-title')
                         ->required(),
 
                     Input::make('category.slug')
                         ->title(__('Slug'))
                         ->type('text')
                         ->max(255)
+                        ->id('slug')
+                        ->readonly()
                         ->required(),
                 ]),
 
