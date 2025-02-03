@@ -54,11 +54,11 @@ class PostScreen extends Screen
                     ->width(400)
                     ->cantHide()
                     ->sort()
-                    ->render(fn ($post) => Link::make($post->title)->route(BlogEnum::postUpdate, $post->id)),
+                    ->render(fn($post) => Link::make($post->title)->route(BlogEnum::postUpdate, $post->id)),
 
                 TD::make('category', __('Category'))
                     ->alignCenter()
-                    ->render(fn ($post) => $post->category->name),
+                    ->render(fn($post) => $post->category->name),
 
                 TD::make('status', __('Status'))
                     ->alignCenter()
@@ -70,17 +70,11 @@ class PostScreen extends Screen
                         $image = $post->attachment()->first();
 
                         return $image
-                            ? '<img src="'.$image->url.'" height="50px" />'
+                            ? '<img src="' . $image->url . '" height="50px" />'
                             : '&mdash;';
                     })
                     ->alignCenter()
                     ->defaultHidden(),
-
-                TD::make('recommended', __('Recommended'))
-                    ->usingComponent(Boolean::class)
-                    ->width('150px')
-                    ->sort()
-                    ->alignCenter(),
 
                 TD::make('published_at', __('Published at'))
                     ->usingComponent(DateTimeSplit::class)
@@ -103,7 +97,7 @@ class PostScreen extends Screen
                     ->alignCenter()
                     ->width('100px')
                     ->canSee(auth()->user()->hasAnyAccess([BlogEnum::postUpdate, BlogEnum::postDelete]))
-                    ->render(fn (Post $post) => DropDown::make()
+                    ->render(fn(Post $post) => DropDown::make()
                         ->icon('bs.three-dots-vertical')
                         ->list([
                             Link::make(__('Edit'))
@@ -114,7 +108,7 @@ class PostScreen extends Screen
                             Button::make(__('Delete'))
                                 ->icon('bs.trash3')
                                 ->canSee(auth()->user()->hasAccess(BlogEnum::postDelete))
-                                ->confirm(__(BlogEnum::prefixPlugin.'::plugin_blog.confirm_delete'))
+                                ->confirm(__(BlogEnum::prefixPlugin . '::plugin_blog.confirm_delete'))
                                 ->method('remove', ['id' => $post->id]),
                         ]))
                     ->cantHide(),
